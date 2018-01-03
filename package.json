@@ -1,0 +1,30 @@
+{
+  "name": "github-fetcher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./server/index.js",
+  "scripts": {
+    "test": "mocha",
+    "server-dev": "nodemon server/index.js",
+    "react-dev": "webpack -d --watch"
+  },
+  "author": "Stephen Makowski",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mysql": "^2.15.0",
+    "path": "^0.12.7",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "chai": "^4.1.2",
+    "mocha": "^4.1.0",
+    "webpack": "^3.10.0"
+  }
+}

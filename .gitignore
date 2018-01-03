@@ -1,0 +1,11 @@
+#node_modules
+node_modules/
+
+# webpack bundle
+bundle.js
+
+# File settings
+.DS_Store
+
+# API configs
+config.js
