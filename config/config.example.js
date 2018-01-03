@@ -4,5 +4,12 @@
 */
 
 module.exports = {
-
+  mySql: {
+    client: 'mysql',
+    connection: {
+      user: 'root',
+      password: 'password', /* OR whatever the password is */
+      database: 'github_fetcher'
+    }
+  }
 }
