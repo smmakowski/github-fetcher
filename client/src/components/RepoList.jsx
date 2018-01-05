@@ -6,9 +6,15 @@ class RepoList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      repos: ['I', 'am', 'a', 'list', 'item'],
-      sortedBy: 'Stars'
+      repos: this.props.repos,
+      sortedBy: this.props.sortedBy
     }
+  }
+
+  renderListItems() {
+    return this.state.repos.map((repo) => {
+      return <RepoListItem repo={repo} />
+    });
   }
 
   render() {
@@ -16,6 +22,7 @@ class RepoList extends React.Component {
       <div>
         <h3>Top {this.state.repos.length} Repositories by {this.state.sortedBy}</h3>
         <ol>
+          {this.renderListItems()}
         </ol>
       </div>
     )
