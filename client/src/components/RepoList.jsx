@@ -12,17 +12,17 @@ class RepoList extends React.Component {
   }
 
   renderListItems() {
-    return this.state.repos.map((repo) => {
-      return <RepoListItem repo={repo} />
+    return this.state.repos.map((repo, i) => {
+      return <RepoListItem key={ i } repo={ repo } />
     });
   }
 
   render() {
     return (
       <div>
-        <h3>Top {this.state.repos.length} Repositories by {this.state.sortedBy}</h3>
+        <h3>Top { this.state.repos.length } Repositories by { this.state.sortedBy }</h3>
         <ol>
-          {this.renderListItems()}
+          { this.renderListItems() }
         </ol>
       </div>
     )

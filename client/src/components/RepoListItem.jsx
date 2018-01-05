@@ -12,10 +12,10 @@ class RepoListItem extends React.Component {
   render() {
     return (
       <div>
-        <h4>{this.state.repo.name}</h4>
-        <h6>{this.state.repo.owner}</h6>
-        Stars: {this.state.repo.stars} Forks: {this.state.repo.forks}
-        <a href={this.state.repo.url}>Go to Repo!</a>
+        <b>Repo Name:</b> { this.state.repo.name }<br />
+        <b>Repo Owner:</b> { this.state.repo.owner }<br />
+        <b>Stars:</b> { this.state.repo.stars } <b>Forks:</b> { this.state.repo.forks }<br />
+        Go to <a href={ this.state.repo.url }>REPO</a>
       </div>
     )
   }

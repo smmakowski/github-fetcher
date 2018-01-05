@@ -6,15 +6,22 @@ class UserList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      repos: ['I', 'am', 'a', 'list', 'item'],
+      users: this.props.users
     }
+  }
+
+  renderUserListItems() {
+    return this.state.users.map((user, i) => {
+      return <UserListItem key={ i } user={ user } />
+    });
   }
 
   render() {
     return (
       <div>
-        <h3>Users That have been Searched For</h3>
+        <h3>Users added to archive:</h3>
         <ol>
+          { this.renderUserListItems() }
         </ol>
       </div>
     )

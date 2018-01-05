@@ -10,6 +10,7 @@ class App extends React.Component {
     this.state = {
       // implement necessary state
       repos: [{owner: 'Owner', name: 'Repo Name', url: 'http://www.github.com', stars: 100, forks: 100}],
+      users: [{username: 'User', repos: ['User Repo'], url: 'http://www.github.com/smmakowski', friends: ['friend', 'buddy', 'guy']}],
       sortedBy: 'Stars'
     }
   }
@@ -22,9 +23,9 @@ class App extends React.Component {
     return (
       <div>
         <h1>Github Fetcher</h1>
-        <Search searchForUser={this.searchForUser} />
-        <RepoList repos={this.state.repos} sortedBy={this.state.sortedBy}/>
-        <UserList />
+        <Search searchForUser={ this.searchForUser } />
+        <RepoList repos={ this.state.repos } sortedBy={ this.state.sortedBy }/>
+        <UserList users={ this.state.users } />
       </div>
     )
   }
