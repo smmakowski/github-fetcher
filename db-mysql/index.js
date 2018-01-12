@@ -13,6 +13,19 @@ connection.connect((err) => {
   }
     console.log('Connection established');
 });
+
+// connection.query('INSERT INTO users (username, profile_url) VALUES ("fakename", "http://www.google.com")', (err, results) => {
+//   if (err) {
+//     throw err;
+//   }
+//   console.log('put it in!');
+//   connection.query('SELECT * FROM users', (err, results) => {
+//     if (err) {
+//       throw err;
+//     }
+//     console.log("RESULTS", results);
+//   })
+// })
 // sequelize.authenticate()
 // .then(() => {
 //   console.log('DB CONNECTION MADE');
