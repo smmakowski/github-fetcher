@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-const db = require(path.join(__dirname, '../db-mysql/index.js'));
+const db = require(path.join(__dirname, '../db-mysql/models.js'));
 
 const PORT = process.env.PORT || 3000;
 
@@ -16,6 +16,14 @@ app.get('/freebietest', (req, res) => {
   res.send('OK');
 });
 
+app.get('/users', (req, res) => {
+  db.getAllUsers()
+  .then((users) => {
+    console.log(users);
+    res.send(JSON.stringify(users));
+  });
+});
+
 const reposRouter = express.Router();
 
 reposRouter.route('/')
@@ -23,6 +31,7 @@ reposRouter.route('/')
 
     res.send('BASE'); // change me after implementation
   });
+
 reposRouter.route('/import')
   .post((req, res) => {
 

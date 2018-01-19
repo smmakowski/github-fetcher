@@ -3,16 +3,29 @@ const mysql = require('mysql');
 const path = require('path');
 const env = process.env.NODE_ENV || 'development';
 const config = require(path.join(__dirname, '../config/config.js')).mySql[env]['connection'];
+const Bluebird = require('bluebird');
 
-const connection = mysql.createConnection(config);
+const con = mysql.createConnection(config);
 
-connection.connect((err) => {
-  if (err) {
-    console.log(err);
-    return;
-  }
-    console.log('Connection established');
-});
+const db = Bluebird.promisifyAll(con);
+
+// const getAllUsers = () => {
+//   return con.queryAsync('SELECT  * FROM users;');
+// };
+
+module.exports = {
+  con
+}
+// const db = Bluebird.promisifyAll(connection);
+
+
+// connection.connect((err) => {
+//   if (err) {
+//     console.log(err);
+//     return;
+//   }
+//     console.log('Connection established');
+// });
 
 // connection.query('INSERT INTO users (username, profile_url) VALUES ("fakename", "http://www.google.com")', (err, results) => {
 //   if (err) {
