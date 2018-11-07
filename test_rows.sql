@@ -1,0 +1,28 @@
+-- USE github_fetcher;
+
+CREATE TABLE IF NOT EXISTS users (
+  id INT NOT NULL AUTO_INCREMENT,
+  username VARCHAR(50) NOT NULL DEFAULT '',
+  profile_url VARCHAR(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS repos (
+  id INT NOT NULL AUTO_INCREMENT,
+  owner_id INT NOT NULL,
+  repo_url VARCHAR(255) NOT NULL DEFAULT '',
+  stars INT NOT NULL DEFAULT 0,
+  forks INT NOT NULL DEFAULT 0,
+  PRIMARY KEY (id)
+);
+
+ALTER TABLE repos ADD FOREIGN KEY (owner_id) REFERENCES users(id);
+
+CREATE TABLE IF NOT EXISTS contributors (
+  id INT NOT NULL AUTO_INCREMENT,
+  username VARCHAR(50) NOT NULL DEFAULT '',
+  repo_id INT NOT NULL,
+  PRIMARY KEY (id)
+);
+
+ALTER TABLE repos ADD FOREIGN KEY (repo_id) REFERENCES repos(id);
